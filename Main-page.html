@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> 
+  <link rel="stylesheet" href="/css/Main-page.css">
+  <link rel="stylesheet" href="/css/Main-page-max-900px.css">
+  <script src="/js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  <title>Main Page</title>
+</head>
+<body>
+  <div class="body">
+    <header>      
+        <nav class="header py-3">
+          <a href="Main-page.html" class="link-main text-decoration-none">
+            <img src="/img/MAIN PAGE_free-file.png" alt="logo" width="100">
+          </a>
+        </nav>
+    </header>
+    <main>
+      <div class="main">
+        <div class="login-container p-5">
+          <form class="formSignIn" name="formSignIn">
+            <p class="text text-center mb-3 fw-bolder">Please sign in</p>
+
+            <label for="login" class="fs-5">Username:</label>
+            <input type="text" class="login form-control my-1" name="login" id="login"/> 
+
+            <label for="password" class="fs-5">Password:</label> 
+            <input type="password" class="password form-control " name="password" id="password"/>
+            
+            <button type="submit" id="sendBtn" class="btn btn-primary px-4">Sign In</button>           
+            <button type="button" id="btnSignUp" class="btn btn-success px-4">Sign Up</button>          
+          </form>
+        </div> 
+        <div class="modal-responce">
+          <div class="modal-responce-dialog flex-row ">
+            <div class="modal-responce-content text-center opacity" style="opacity: 1;">              
+              <p class="modal-responce-text fs-5 mt-3 px-1"></p>
+              <button class="btn-close-modal-responce btn btn-danger w-auto m-1">close</button>              
+            </div>
+          </div>          
+        </div>
+        <div class="modal-register" id="modal-register">
+          <div class="modal-register-dialog">
+            <div class="modal-register-content">
+              <form class="formSignUp" name="formSignUp">
+                <p class="text text-center mb-3 fw-bolder">Fill the form</p>
+                <label for="email" class="fs-5">Login(Email):</label>
+                <input type="text" class="email form-control my-1" name="email" id="email"/> 
+
+                <label for="password" class="fs-5">Password:</label> 
+                <input type="password" class="password form-control my-1" name="password" id="password"/>
+                
+                <label for="first-name" class="fs-5">FirstName:</label>
+                <input type="text" class="firstName form-control my-1" name="firstName" id="firstName"/> 
+
+                <label for="lastName" class="fs-5">LastName:</label> 
+                <input type="lastName" class="lastName form-control my-1" name="lastName" id="lastName"/>
+
+                <label for="mobile" class="fs-5">Mobile:</label> 
+                <input type="mobile" class="mobile form-control my-1" name="mobile" id="mobile"/>
+
+                <button type="submit" id="sendBtnSignUp" class="btn btn-success m-2 px-4">Sign Up</button>
+                <button type="button" id="closeSignUpMenu" class="btn btn-danger m-2 px-4">Close</button>
+              </form>              
+            </div>
+          </div>
+        </div>              
+      </div>
+      
+    </main>
+    
+    <footer>      
+        <nav class="footer">  
+          <a href="https://hh.ru/resume/07851f9eff0b9bc0440039ed1f68536c6e4f56"
+          target="_blank" class="link-resume mx-5 py-3 text-decoration-none">
+            &#169 Михаил Новиков
+          </a>              
+          <a href="https://www.linkedin.com/in/-mikhail-novikov/?locale=en_US" 
+          target="_blank" class="link-linkedIn px-3 py-3">
+            <img src="http://s1.iconbird.com/ico/2013/8/414/w150h150137590643510.png" 
+            width="30" alt="linkedIn"/>
+          </a>
+          <a href="mailto:mikhail.noviikov@gmail.com"  class="link-email px-3 py-3">
+            <img src="/img/email.png"
+            width="35" alt="email">        
+          </a>
+          <a href="https://t.me/pvgax" target="_blank"  class="link-tg px-3 py-3">
+            <img src="/img/telegram.png" 
+            width="30" alt="telegram">
+          </a>
+        </nav>
+    </footer>
+  </div>
+  
+</body>
+</html>

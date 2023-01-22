@@ -1,0 +1,88 @@
+.body {
+  min-height: 100vh;
+  display: grid;
+  grid: auto 1fr auto / 100%;
+  background-color: whitesmoke;
+}
+
+
+.form-control {
+  width: 100%;
+  justify-self: center;
+}
+
+.header {
+  width: 100%;
+  border-bottom: 1px solid #d6d6c9; 
+}
+.link-main {
+  padding-left: 5vw;
+}
+.main {
+  height: 100%;  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;  
+}
+
+.login-container {  
+  min-width: 30vw;
+  min-height: 30vw;
+  border: 2px solid aqua;
+  border-radius: 25px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  font-size: 2em;  
+}
+
+.modal-register {   
+  position: absolute;
+  min-width: 30vw;
+  min-height: 30vw;
+  border: 2px solid aqua;
+  border-radius: 25px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  font-size: 2em;
+  box-shadow: 0px 0px 100vw 100vw rgba(0, 0, 0, 0.5);
+  z-index: 15; 
+  visibility: hidden;
+  transform: translateY(-100%);
+}
+.modal-register:target {
+  visibility: visible;
+  transform: translateY(0%);
+  transition: 0.7s;
+  z-index: 15;
+}
+:is(.modal-register, .main-container):hover {
+  border-color: darkblue;
+  transition: .3s;
+}
+
+.footer {  
+  display: flex;
+  justify-content: left;
+  align-self: center; 
+  border-top: 1px solid #d6d6c9;     
+}
+.header a,.footer a {
+  color: gray;
+}
+
+.modal-responce {
+  visibility: hidden;
+  position: absolute;
+  border-radius: 10px;
+  min-width: 35vw;
+  min-height: 10vw;
+  transform: translateY(-100%);  
+  border: 2px solid blueviolet;
+  z-index: 25;
+  background-color: white;
+  box-shadow: 0px 0px 100vw 100vw rgba(0, 0, 0, 0.5); 
+}
+
