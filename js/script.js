@@ -2,61 +2,55 @@
 document.addEventListener('DOMContentLoaded', function () {
 
   let formSignIn = document.forms.formSignIn; 
-  let login = formSignIn.elements.login; 
-  let password = formSignIn.elements.password;
+  let loginSignIn = formSignIn.elements.loginSignIn; 
+  let passwordSignIn = formSignIn.elements.passwordSignIn;
 
   let formSignUp =  document.forms.formSignUp;
-  let Email = formSignUp.elements.email;
-  let FirstName = formSignUp.elements.firstName;
-  let LastName = formSignUp.elements.lastName;
-  let Password =  formSignUp.elements.password;
-  let Mobile = formSignUp.elements.mobile; 
+  let emailSignUp = formSignUp.elements.emailSignUp;
+  let firstNameSignUp = formSignUp.elements.firstNameSignUp;
+  let lastNameSignUp = formSignUp.elements.lastNameSignUp;
+  let passwordSignUp =  formSignUp.elements.passwordSignUp;
+  let mobileSignUp = formSignUp.elements.mobileSignUp; 
 
-  let loginContainer = document.querySelector('.login-container');
-  let modalRegister =  document.querySelector('.modal-register');
+  let signInContainer = document.querySelector('.signIn-container');
+  let modalSignUp =  document.querySelector('.modal-signUp');
   let btnSignUp = document.querySelector('#btnSignUp');
   let btnCloseSignUpMenu = document.querySelector('#closeSignUpMenu');
-
-  btnCloseSignUpMenu.addEventListener('click', function () {
-    
-    modalRegister.style.visibility = 'hidden';
-    modalRegister.style.transform = 'translateY(-100%)';
-    modalRegister.style.transition = '0.5s';
-    setTimeout(()=> {loginContainer.style.display = 'unset';},400);
-    
+  /*Close responce modal-window*/
+  btnCloseSignUpMenu.addEventListener('click', function () {    
+    closeModalSignUpMenu();    
   })
+  /*Call Sign Up modal-window */
   btnSignUp.addEventListener('click', function(){    
-    loginContainer.style.display = 'none';
-    modalRegister.style.visibility = 'visible';
-    modalRegister.style.transform = 'translateY(0%)';
-    modalRegister.style.transition = '0.5s';
+    signInContainer.style.visibility = 'hidden';
+    modalSignUp.style.visibility = 'visible';
+    modalSignUp.style.transform = 'translateY(0%)';
+    modalSignUp.style.transition = '0.5s';
   })
-  
+  /*submit Sign In form*/
   formSignIn.addEventListener('submit', function (event) {
     event.preventDefault(true);
-    soapReuqestLogin(login, password);
+    soapReuqestSignIn(loginSignIn, passwordSignIn);   
     event.target.reset();
   })
+  /*submit Sign Up form*/
   formSignUp.addEventListener('submit', function(event) {
     event.preventDefault(true);
-    loginContainer = document.querySelector('.login-container');
-    loginContainer.style.display = 'none';
-    soapReuqestRegister(Email,Password,FirstName,LastName,Mobile);
-    event.target.reset;
+    signInContainer = document.querySelector('.signIn-container');
+    signInContainer.style.visibility = 'hidden';
+    soapReuqestSignUp(emailSignUp,passwordSignUp,firstNameSignUp,lastNameSignUp,mobileSignUp);    
+    event.target.reset();
   })
+  /*close responce modal-window*/
   let btnCloseModalResponce = document.querySelector('.btn-close-modal-responce');
-  btnCloseModalResponce.addEventListener('click', function() {
-    
+  btnCloseModalResponce.addEventListener('click', function() {    
     let modalResponce = document.querySelector('.modal-responce')
-    modalResponce.style.visibility = 'hidden'; 
-    modalResponce.style.transform = 'translateY(-100%)';
-    modalResponce.style.transition = '0s'; 
-     })
-
-    
+    modalResponce.style.visibility = 'hidden';
+    modalResponce.style.transition = '.1ms'; 
+    })
 })
-
-function soapReuqestLogin(login, password) {
+/* Soap request Sign In*/
+function soapReuqestSignIn(login, password) {
   var soapRequest = '<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/ XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:ICUTech.Intf-IICUTech">' +
     '<soapenv:Header/>' +
       '<soapenv:Body>' +
@@ -71,15 +65,16 @@ function soapReuqestLogin(login, password) {
   xmlhttp.open('POST', 'http://isapi.icu-tech.com/icutech-test.dll/soap/IICUTech', true);
 
   xmlhttp.onreadystatechange = function () {
-    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-      showResult(xmlhttp);
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { 
+      /*if Sign In successful - move to account.html page */ 
+      resultRequest(xmlhttp) ? moveToAccountPage(xmlhttp) : null;      
     }
   }
   // Send the POST request
   xmlhttp.send(soapRequest);
 }
-
-function soapReuqestRegister(Email, Password, FirstName, LastName, Mobile) {
+/* Soap request Sign Up*/
+function soapReuqestSignUp(Email, Password, FirstName, LastName, Mobile) {
   var soapRequest = '<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:ICUTech.Intf-IICUTech">' +
     '<soapenv:Header/>' +
       '<soapenv:Body>' +
@@ -99,13 +94,14 @@ function soapReuqestRegister(Email, Password, FirstName, LastName, Mobile) {
   xmlhttp.open('POST', 'http://isapi.icu-tech.com/icutech-test.dll/soap/IICUTech', true);
   xmlhttp.onreadystatechange = function () {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-      showResult(xmlhttp);
+      /*if Sign up successful - close modal-window */
+      resultRequest(xmlhttp) ? closeModalSignUpMenu() : null;
     }
   }
-  xmlhttp.send(soapRequest);
+  xmlhttp.send(soapRequest);  
 }
-
-function showResult(xmlhttp) {
+/*return result Request (true or false)*/
+function resultRequest(xmlhttp) {
   var xmlStr, i, xmlDoc, jsonStr;  
   xmlDoc = xmlhttp.responseXML; //get responceXML;
   jsonStr = ""; //str for 
@@ -115,34 +111,57 @@ function showResult(xmlhttp) {
   }
 
   var object = JSON.parse(jsonStr);//parse JSON to object
-  
-  if (object['ResultCode'] == -1 ||  object['ResultCode'] == -3) {      
+  /*show result*/
+  if (object['ResultCode'] == -1 ||  object['ResultCode'] == -3) {    
+    showRequestResponce('red');
+    return false;
+  } else {
+    showRequestResponce('green');    
+    closeModalSignUpMenu();    
+    return true;
+  }  
+}
+/*show result Responce*/
+function showRequestResponce(colorMessage) {
+    /*set message for responce modal window*/ 
     let modalResponceText = document.querySelector('.modal-responce-text');    
     modalResponceText.innerText = object['ResultMessage'];
-    modalResponceText.style.color = 'red';    
-    
+    modalResponceText.style.color = colorMessage;    
+    /*show modal responce modal-window*/
     let modalResponce = document.querySelector('.modal-responce')
     modalResponce.style.visibility = 'visible'; 
     modalResponce.style.transition = '.4s';
-    modalResponce.style.transform = 'translateY(0%)';   
-    
-    
-  } else {
-    let modalResponceText = document.querySelector('.modal-responce-text');    
-    modalResponceText.innerText = 'Successful';
-    modalResponceText.style.color = 'green';    
-    
-    let modalResponce = document.querySelector('.modal-responce')
-    modalResponce.style.visibility = 'visible'; 
-    modalResponce.style.transition = '.4s';
-    modalResponce.style.transform = 'translateY(0%)';
-  }
-  
+    modalResponce.style.transform = 'translateY(0%)'; 
 }
 
+/*Close Sign Up modal-window*/
+function closeModalSignUpMenu() {
+  let loginContainer = document.querySelector('.signIn-container');
+  let modalRegister =  document.querySelector('.modal-signUp');
+  modalRegister.style.visibility = 'hidden';
+  modalRegister.style.transform = 'translateY(-100%)';
+  modalRegister.style.transition = '0.5s';
+  setTimeout(()=> {loginContainer.style.visibility = 'visible';},400);    
+}
+/*getInfo about user and send it to accont.html page*/
+function moveToAccountPage(xmlhttp) {  
+  var xmlStr, i, xmlDoc, jsonStr;  
+  xmlDoc = xmlhttp.responseXML; //get responceXML;
+  jsonStr = ""; 
+  xmlStr = xmlDoc.getElementsByTagName("return"); //get result request in XML string
+  for (i = 0; i < xmlStr.length; i++) {
+    jsonStr += xmlStr[i].childNodes[0].nodeValue; //get result in JSON string
+  }
 
+  var object = JSON.parse(jsonStr);//parse JSON to object    
 
-
+  localStorage.setItem('firstName',object['FirstName']);
+  localStorage.setItem('lastName',object['LastName']);
+  localStorage.setItem('email',object['Email']);
+  localStorage.setItem('mobile',object['Mobile']);   
+  
+  window.location.href = '/account.html';  
+}
 
 
 
