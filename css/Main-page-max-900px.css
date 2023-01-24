@@ -14,9 +14,8 @@
     width: 21.875em;
     height: 7.375em;
   }
-  .modal-register { 
-    min-width: 35vh;
-   
+  .modal-signUp { 
+    min-width: 35vh;   
     min-height: 7.375em;
   }
   .footer {

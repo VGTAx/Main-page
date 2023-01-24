@@ -113,19 +113,19 @@ function resultRequest(xmlhttp) {
   var object = JSON.parse(jsonStr);//parse JSON to object
   /*show result*/
   if (object['ResultCode'] == -1 ||  object['ResultCode'] == -3) {    
-    showRequestResponce('red');
+    showRequestResponce('red', object['ResultMessage']);
     return false;
-  } else {
-    showRequestResponce('green');    
+  } else {      
+    showRequestResponce('red', 'Successful');
     closeModalSignUpMenu();    
     return true;
   }  
 }
 /*show result Responce*/
-function showRequestResponce(colorMessage) {
+function showRequestResponce(colorMessage, message) {
     /*set message for responce modal window*/ 
     let modalResponceText = document.querySelector('.modal-responce-text');    
-    modalResponceText.innerText = object['ResultMessage'];
+    modalResponceText.innerText = message;
     modalResponceText.style.color = colorMessage;    
     /*show modal responce modal-window*/
     let modalResponce = document.querySelector('.modal-responce')
