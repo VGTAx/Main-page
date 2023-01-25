@@ -22,15 +22,23 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
 }
 
 .info {
   display: flex;
   flex-direction: column;
+  border-radius: 25px;
+  box-shadow: 0px 0px 6px 2px silver;
+}
+
+.accInfo {
+  color: rgb(175, 118, 48);
 }
 
 .info label {
   font-weight: 600;
+  color: brown;
 }
 
 .footer {

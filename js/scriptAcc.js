@@ -12,10 +12,11 @@ document.addEventListener('DOMContentLoaded', function () {
    const mobile = localStorage.getItem('mobile');
    document.querySelector('.mobile').textContent = mobile;
 
-   localStorage.clear();
+
    /*move to main-page*/
    const btnLeave = document.querySelector('.exitBtn');
    btnLeave.addEventListener('click', function () {
+      localStorage.clear();
       window.location.href = '/index.html';
    })
 })

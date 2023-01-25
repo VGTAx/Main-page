@@ -5,18 +5,16 @@
   background-color: whitesmoke;
 }
 
-.form-control {
-  width: 100%;  
-}
-
 .form-control:focus {
   box-shadow: 0px 0px 2px 1px;
 }
+
 .header-nav {
   width: 100%;
   border-bottom: 1px solid #d6d6c9;
 }
-/*Link*/
+
+/*Link(logo) to main-page*/
 .link-main {
   padding-left: 5vw;
 }
@@ -27,29 +25,29 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 }
 
 .signIn-container {
-  min-width: 30vw;
-  min-height: 30vw;
+  max-width: 400px;
+  max-height: 500px;
   border-radius: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2em;
+  font-size: 1.8em;
   box-shadow: 0px 0px 5px 1px grey;
 }
 
 .modal-signUp {
   position: absolute;
-  min-width: 30vw;
-  min-height: 30vw;
-  border: 2px solid aqua;
+  min-width: 400px;
+  padding: 0.5em 1em;
   border-radius: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2em;
+  font-size: 1.2em;
   box-shadow: 0px 0px 100vw 100vw rgba(0, 0, 0, 0.5);
   z-index: 15;
   visibility: hidden;
@@ -67,10 +65,11 @@
   visibility: hidden;
   position: absolute;
   border-radius: 10px;
-  min-width: 35vw;
-  min-height: 10vw;
+  width: 500px;
+  min-height: 150px;
+  font-size: 1.5em;
   transform: translateY(-100%);
-  border: 2px solid blueviolet;
+  border: 2px solid rgb(43, 41, 44);
   z-index: 25;
   background-color: white;
   box-shadow: 0px 0px 100vw 100vw rgba(0, 0, 0, 0.5);
@@ -85,5 +84,15 @@
 
 .footer a {
   color: gray;
+  z-index: 1;
 }
 
+#sendBtn,
+#btnSignUp,
+#sendBtnSignUp,
+#closeSignUpMenu,
+.btn-close-modal-responce {
+  font-size: large;
+  margin: 1em;
+  padding: 0.3em;
+}

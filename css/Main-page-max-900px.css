@@ -1,26 +1,186 @@
-@media screen and (max-width:900px) {
+@media screen and (max-width:1024px) and (min-height: 600px) {
   * {
     padding: 0;
     margin: 0;
   }
+
   .header {
     display: flex;
     justify-content: center;
   }
+
   .link-main {
     justify-self: center;
   }
+
   .modal-responce {
-    width: 21.875em;
-    height: 7.375em;
+    width: 500px;
+    min-height: 150px;
+    font-size: 1.5em;
   }
-  .modal-signUp { 
-    min-width: 35vh;   
-    min-height: 7.375em;
+
+  .modal-signUp {
+    font-size: 1.2em;
+    min-width: 380px;
+    max-height: 650px;
+    padding: 0.2em;
   }
+
+  .signIn-container {
+    max-width: 400px;
+    max-height: 500px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8em;
+    box-shadow: 0px 0px 5px 1px grey;
+  }
+
+  #sendBtn,
+  #btnSignUp,
+  #sendBtnSignUp,
+  #closeSignUpMenu,
+  .btn-close-modal-responce {
+    font-size: medium;
+    margin: 1em;
+    padding: 0.3em;
+  }
+
+  .form-control {
+    height: 2.2em;
+  }
+
   .footer {
     padding: 0;
     margin: 0;
   }
-  
+
+}
+
+@media screen and (max-width: 720px) and (min-height:500px) {
+  .modal-signUp {
+    font-size: 1.1em;
+    min-width: 340px;
+    max-height: 540px;
+    padding: 0.2em;
+  }
+
+  .signIn-container {
+    max-width: 350px;
+    max-height: 460px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    box-shadow: 0px 0px 5px 1px grey;
+  }
+
+  #sendBtn,
+  #btnSignUp,
+  #sendBtnSignUp,
+  #closeSignUpMenu .btn-close-modal-responce {
+    font-size: medium;
+    margin: 1em;
+    padding: 0.3em;
+  }
+
+  .form-control {
+    height: 2.2em;
+  }
+
+  .modal-responce {
+    width: 450px;
+    min-height: 5.375em;
+    font-size: 1.2em;
+  }
+}
+
+@media screen and (max-width: 540px) and (min-height:470px) {
+  .modal-signUp {
+    font-size: 0.9em;
+    min-width: 280px;
+    max-height: 400px;
+    padding: 0.2em;
+  }
+
+  .signIn-container {
+    max-width: 310px;
+    max-height: 460px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3em;
+    box-shadow: 0px 0px 5px 1px grey;
+  }
+
+  .modal-responce {
+    width: 350px;
+    min-height: 5.375em;
+    font-size: 1em;
+  }
+
+  #sendBtn,
+  #btnSignUp,
+  #sendBtnSignUp,
+  #closeSignUpMenu,
+  .btn-close-modal-responce {
+    font-size: small;
+    margin: 1em;
+    padding: 0.3em;
+  }
+
+  .form-control {
+    height: 2em;
+  }
+
+}
+
+@media screen and (max-width: 360px) and (min-height:435px) {
+  .signIn-container {
+    max-width: 240px;
+    max-height: 360px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1em;
+    box-shadow: 0px 0px 5px 1px grey;
+  }
+
+  #sendBtn,
+  #btnSignUp,
+  #sendBtnSignUp,
+  #closeSignUpMenu,
+  .btn-close-modal-responce {
+    align-self: center;
+    font-size: small;
+    margin: 0.2em;
+    padding: 0.3em;
+  }
+
+  .modal-signUp {
+    font-size: 0.8em;
+    min-width: 240px;
+    max-height: 360px;
+    padding: 0.2em;
+  }
+
+  .modal-responce {
+    max-width: 320px;
+    max-height: 150px;
+    font-size: 1em;
+  }
+
+
+  .form-control {
+    height: 1.8em;
+  }
+
+  .footer {
+    padding: 0;
+    margin: 0;
+  }
 }

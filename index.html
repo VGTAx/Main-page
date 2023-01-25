@@ -30,15 +30,16 @@
           <form class="formSignIn" name="formSignIn">
             <p class="text text-center mb-3 fw-bolder">Please sign in</p>
 
-            <label for="loginSignIn" class="fs-5">Username:</label>
+            <label for="loginSignIn">Username:</label>
             <input type="text" class="loginSignIn form-control my-1" name="loginSignIn" id="loginSignIn" />
 
-            <label for="passwordSignIn" class="fs-5">Password:</label>
-            <input type="password" class="passwordSignIn form-control border-1" name="passwordSignIn" id="passwordSignIn" />
+            <label for="passwordSignIn">Password:</label>
+            <input type="password" class="passwordSignIn form-control border-1" name="passwordSignIn"
+              id="passwordSignIn" />
 
-            <button type="submit" id="sendBtn" class="btn btn-primary px-4">Sign In</button>
+            <button type="submit" id="sendBtn" class="btn btn-primary">Sign In</button>
             <!--Call Sign Up modal-window-->
-            <button type="button" id="btnSignUp" class="btn btn-success px-4">Sign Up</button>
+            <button type="button" id="btnSignUp" class="btn btn-success">Sign Up</button>
           </form>
         </div>
         <!--Modal window with response from server-->
@@ -46,7 +47,7 @@
           <div class="modal-responce-dialog">
             <div class="modal-responce-content text-center">
               <!--Message response from server-->
-              <p class="modal-responce-text fs-5 mt-3 px-1"></p>
+              <p class="modal-responce-text mt-3 px-1"></p>
               <button class="btn-close-modal-responce btn btn-danger w-auto m-1">Close</button>
             </div>
           </div>
@@ -55,23 +56,23 @@
         <div class="modal-signUp" id="modal-signUp">
           <div class="modal-signUp-dialog">
             <div class="modal-signUp-content">
-              <form class="formSignUp" name="formSignUp">
-                <p class="text text-center mb-3 fw-bolder">Fill the form</p>
-                
-                <label for="email_SignUp" class="fs-5">Login(E-mail):</label>
-                <input type="text" class="emailSignUp form-control my-1" name="emailSignUp" id="email_SignUp" />
+              <form class="formSignUp p-2" name="formSignUp">
+                <p class="text text-center mb-1 fs-2 fw-bolder">Fill the form</p>
 
-                <label for="passwordSignUp" class="fs-5">Password:</label>
-                <input type="password" class="passwordSignUp form-control my-1" name="passwordSignUp" id="passwordSignUp" />
+                <label for="email_SignUp" class="label m-0 EmailSignUp">Login(E-mail):</label>
+                <input type="text" class="emailSignUp form-control" name="emailSignUp" id="email_SignUp" />
 
-                <label for="first-name" class="fs-5">FirstName:</label>
-                <input type="text" class="firstNameSignUp form-control my-1" name="firstNameSignUp" id="firstNameSignUp" />
+                <label for="passwordSignUp" class="label PasswordSignUp">Password:</label>
+                <input type="password" class="passwordSignUp form-control " name="passwordSignUp" id="passwordSignUp" />
 
-                <label for="lastNameSignUp" class="fs-5">LastName:</label>
-                <input type="text" class="lastNameSignUp form-control my-1" name="lastNameSignUp" id="lastNameSignUp" />
+                <label for="firstNameSignUp" class="label FirstNameSignUp">FirstName:</label>
+                <input type="text" class="firstNameSignUp form-control" name="firstNameSignUp" id="firstNameSignUp" />
 
-                <label for="mobileSignUp" class="fs-5">Mobile:</label>
-                <input type="text" class="mobileSignUp form-control my-1" name="mobileSignUp" id="mobileSignUp" />
+                <label for="lastNameSignUp" class="label LastNameSignUp">LastName:</label>
+                <input type="text" class="lastNameSignUp form-control" name="lastNameSignUp" id="lastNameSignUp" />
+
+                <label for="mobileSignUp" class="label MobileSignUp">Mobile:</label>
+                <input type="text" class="mobileSignUp form-control" name="mobileSignUp" id="mobileSignUp" />
 
                 <button type="submit" id="sendBtnSignUp" class="btn btn-success m-2 px-4">Sign Up</button>
                 <button type="button" id="closeSignUpMenu" class="btn btn-danger m-2 px-4">Close</button>
