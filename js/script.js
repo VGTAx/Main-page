@@ -26,9 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
     modalSignUp.style.visibility = 'visible';
     modalSignUp.style.transform = 'translateY(0%)';
     modalSignUp.style.transition = '0.5s';
-    document.body.style.overflow = 'hidden';
-    var scrollbar = document.body.clientWidth - window.innerWidth + 'px';
-    modalSignUp.style.marginLeft = scrollbar;
+    
   })
   /*submit Sign In form*/
   formSignIn.addEventListener('submit', function (event) {

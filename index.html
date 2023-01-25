@@ -36,10 +36,12 @@
             <label for="passwordSignIn">Password:</label>
             <input type="password" class="passwordSignIn form-control border-1" name="passwordSignIn"
               id="passwordSignIn" />
-
-            <button type="submit" id="sendBtn" class="btn btn-primary">Sign In</button>
-            <!--Call Sign Up modal-window-->
-            <button type="button" id="btnSignUp" class="btn btn-success">Sign Up</button>
+            <div class="buttons SignIn">
+              <button type="submit" id="sendBtn" class="btn btn-primary">Sign In</button>
+               <!--Call Sign Up modal-window-->
+              <button type="button" id="btnSignUp" class="btn btn-success">Sign Up</button>
+            </div>
+            
           </form>
         </div>
         <!--Modal window with response from server-->
@@ -73,9 +75,11 @@
 
                 <label for="mobileSignUp" class="label MobileSignUp">Mobile:</label>
                 <input type="text" class="mobileSignUp form-control" name="mobileSignUp" id="mobileSignUp" />
-
-                <button type="submit" id="sendBtnSignUp" class="btn btn-success m-2 px-4">Sign Up</button>
-                <button type="button" id="closeSignUpMenu" class="btn btn-danger m-2 px-4">Close</button>
+                <div class="buttons SignUp">
+                  <button type="submit" id="sendBtnSignUp" class="btn btn-success m-2 px-4">Sign Up</button>
+                  <button type="button" id="closeSignUpMenu" class="btn btn-danger m-2 px-4">Close</button>
+                </div>
+                
               </form>
             </div>
           </div>

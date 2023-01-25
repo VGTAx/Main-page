@@ -38,6 +38,11 @@
   font-size: 1.8em;
   box-shadow: 0px 0px 5px 1px grey;
 }
+.buttons {
+  display: flex;
+  justify-content:space-around;
+  padding: 10px; 
+}
 
 .modal-signUp {
   position: absolute;
@@ -92,7 +97,5 @@
 #sendBtnSignUp,
 #closeSignUpMenu,
 .btn-close-modal-responce {
-  font-size: large;
-  margin: 1em;
-  padding: 0.3em;
+  font-size: large;  
 }
