@@ -37,14 +37,18 @@
     box-shadow: 0px 0px 5px 1px grey;
   }
 
+  .buttons {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+  }
+
   #sendBtn,
   #btnSignUp,
   #sendBtnSignUp,
   #closeSignUpMenu,
   .btn-close-modal-responce {
     font-size: medium;
-    margin: 1em;
-    padding: 0.3em;
   }
 
   .form-control {
@@ -77,13 +81,17 @@
     box-shadow: 0px 0px 5px 1px grey;
   }
 
+  .buttons {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+  }
+
   #sendBtn,
   #btnSignUp,
   #sendBtnSignUp,
   #closeSignUpMenu .btn-close-modal-responce {
     font-size: medium;
-    margin: 1em;
-    padding: 0.3em;
   }
 
   .form-control {
@@ -122,14 +130,18 @@
     font-size: 1em;
   }
 
+  .buttons {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+  }
+
   #sendBtn,
   #btnSignUp,
   #sendBtnSignUp,
   #closeSignUpMenu,
   .btn-close-modal-responce {
     font-size: small;
-    margin: 1em;
-    padding: 0.3em;
   }
 
   .form-control {
@@ -150,15 +162,18 @@
     box-shadow: 0px 0px 5px 1px grey;
   }
 
+  .buttons {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+  }
+
   #sendBtn,
   #btnSignUp,
   #sendBtnSignUp,
   #closeSignUpMenu,
   .btn-close-modal-responce {
-    align-self: center;
     font-size: small;
-    margin: 0.2em;
-    padding: 0.3em;
   }
 
   .modal-signUp {
