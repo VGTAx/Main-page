@@ -1,44 +1,46 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-  let formSignIn = document.forms.formSignIn;
-  let loginSignIn = formSignIn.elements.loginSignIn;
-  let passwordSignIn = formSignIn.elements.passwordSignIn;
-
-  let formSignUp = document.forms.formSignUp;
-  let emailSignUp = formSignUp.elements.emailSignUp;
-  let firstNameSignUp = formSignUp.elements.firstNameSignUp;
-  let lastNameSignUp = formSignUp.elements.lastNameSignUp;
-  let passwordSignUp = formSignUp.elements.passwordSignUp;
-  let mobileSignUp = formSignUp.elements.mobileSignUp;
+  let formSignIn = document.forms.formSignIn; 
+  let formSignUp = document.forms.formSignUp;  
 
   let signInContainer = document.querySelector('.signIn-container');
   let modalSignUp = document.querySelector('.modal-signUp');
-  let btnSignUp = document.querySelector('#btnSignUp');
+  let btnCallSignUpMenu = document.querySelector('#btnSignUp');
   let btnCloseSignUpMenu = document.querySelector('#closeSignUpMenu');
   /*Close Sign-Up  modal-window*/
   btnCloseSignUpMenu.addEventListener('click', function () {
     closeModalSignUpMenu();
   })
   /*Call Sign Up modal-window */
-  btnSignUp.addEventListener('click', function () {
+  btnCallSignUpMenu.addEventListener('click', function () {
     signInContainer.style.visibility = 'hidden';
     modalSignUp.style.visibility = 'visible';
     modalSignUp.style.transform = 'translateY(0%)';
-    modalSignUp.style.transition = '0.5s';
-    
+    modalSignUp.style.transition = '0.5s';    
   })
   /*submit Sign In form*/
-  formSignIn.addEventListener('submit', function (event) {
+  formSignIn.addEventListener('submit', function (event) {    
+    let loginSignIn = formSignIn.elements.loginSignIn;
+    let passwordSignIn = formSignIn.elements.passwordSignIn;
+
     event.preventDefault(true);
     soapReuqestSignIn(loginSignIn, passwordSignIn);
     event.target.reset();
   })
   /*submit Sign Up form*/
   formSignUp.addEventListener('submit', function (event) {
+
+    let emailSignUp = formSignUp.elements.emailSignUp;
+    let firstNameSignUp = formSignUp.elements.firstNameSignUp;
+    let lastNameSignUp = formSignUp.elements.lastNameSignUp;
+    let passwordSignUp = formSignUp.elements.passwordSignUp;
+    let mobileSignUp = formSignUp.elements.mobileSignUp;
+
     event.preventDefault(true);
     signInContainer = document.querySelector('.signIn-container');
     signInContainer.style.visibility = 'hidden';
+    
     soapReuqestSignUp(emailSignUp, passwordSignUp, firstNameSignUp, lastNameSignUp, mobileSignUp);
     event.target.reset();
   })
@@ -55,11 +57,11 @@ function soapReuqestSignIn(login, password) {
   var soapRequest = '<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/ XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:ICUTech.Intf-IICUTech">' +
     '<soapenv:Header/>' +
     '<soapenv:Body>' +
-    '<urn:Login soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">' +
-    '<UserName xsi:type="xsd:string">' + login.value + '</UserName>' +
-    '<Password xsi:type="xsd:string">' + password.value + '</Password>' +
-    '<IPs xsi:type="xsd:string"></IPs>' +
-    '</urn:Login>' +
+      '<urn:Login soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">' +
+      '<UserName xsi:type="xsd:string">' + login.value + '</UserName>' +
+      '<Password xsi:type="xsd:string">' + password.value + '</Password>' +
+      '<IPs xsi:type="xsd:string"></IPs>' +
+      '</urn:Login>' +
     '</soapenv:Body>' +
     '</soapenv:Envelope>';
   var xmlhttp = new XMLHttpRequest();
@@ -67,7 +69,7 @@ function soapReuqestSignIn(login, password) {
 
   xmlhttp.onreadystatechange = function () {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-      /*if Sign In successful - move to account.html page */
+      /*if SignIn successful - move to account.html page */
       resultRequest(xmlhttp) ? moveToAccountPage(xmlhttp) : null;
     }
   }
@@ -76,26 +78,26 @@ function soapReuqestSignIn(login, password) {
 }
 /* Soap request Sign Up*/
 function soapReuqestSignUp(Email, Password, FirstName, LastName, Mobile) {
-  var soapRequest = '<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:ICUTech.Intf-IICUTech">' +
+  let soapRequest = '<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:ICUTech.Intf-IICUTech">' +
     '<soapenv:Header/>' +
     '<soapenv:Body>' +
-    '<urn:RegisterNewCustomer soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">' +
-    '<Email xsi:type="xsd:string">' + Email.value + '</Email>' +
-    '<Password xsi:type="xsd:string">' + Password.value + '</Password>' +
-    '<FirstName xsi:type="xsd:string">' + FirstName.value + '</FirstName>' +
-    '<LastName xsi:type="xsd:string">' + LastName.value + '</LastName>' +
-    '<Mobile xsi:type="xsd:string">' + Mobile.value + '</Mobile>' +
-    '<CountryID xsi:type="xsd:int">0</CountryID>' +
-    '<aID xsi:type="xsd:int">0</aID>' +
-    '<SignupIP xsi:type="xsd:string">0</SignupIP>' +
-    '</urn:RegisterNewCustomer>' +
+      '<urn:RegisterNewCustomer soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">' +
+        '<Email xsi:type="xsd:string">' + Email.value + '</Email>' +
+        '<Password xsi:type="xsd:string">' + Password.value + '</Password>' +
+        '<FirstName xsi:type="xsd:string">' + FirstName.value + '</FirstName>' +
+        '<LastName xsi:type="xsd:string">' + LastName.value + '</LastName>' +
+        '<Mobile xsi:type="xsd:string">' + Mobile.value + '</Mobile>' +
+        '<CountryID xsi:type="xsd:int">0</CountryID>' +
+        '<aID xsi:type="xsd:int">0</aID>' +
+        '<SignupIP xsi:type="xsd:string">0</SignupIP>' +
+      '</urn:RegisterNewCustomer>' +
     '</soapenv:Body>' +
     '</soapenv:Envelope>';
-  var xmlhttp = new XMLHttpRequest();
+  let xmlhttp = new XMLHttpRequest();
   xmlhttp.open('POST', 'http://isapi.icu-tech.com/icutech-test.dll/soap/IICUTech', true);
   xmlhttp.onreadystatechange = function () {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-      /*if Sign up successful - close modal-window */
+      /*if SignUp successful - close modal-window */
       resultRequest(xmlhttp) ? closeModalSignUpMenu() : null;
     }
   }
@@ -103,7 +105,7 @@ function soapReuqestSignUp(Email, Password, FirstName, LastName, Mobile) {
 }
 /*return result Request (true or false)*/
 function resultRequest(xmlhttp) {
-  var xmlStr, i, xmlDoc, jsonStr;
+  let xmlStr, i, xmlDoc, jsonStr;
   xmlDoc = xmlhttp.responseXML; //get responceXML;
   jsonStr = ""; //str for 
   xmlStr = xmlDoc.getElementsByTagName("return"); //get result request in XML format
@@ -111,7 +113,7 @@ function resultRequest(xmlhttp) {
     jsonStr += xmlStr[i].childNodes[0].nodeValue; //get result in JSON format
   }
 
-  var object = JSON.parse(jsonStr);//parse JSON to object
+  let object = JSON.parse(jsonStr);//parse JSON to object
   /*show result*/
   if (object['ResultCode'] == -1 || object['ResultCode'] == -3) {
     showRequestResponce('red', object['ResultMessage']);
@@ -141,11 +143,11 @@ function closeModalSignUpMenu() {
   modalRegister.style.visibility = 'hidden';
   modalRegister.style.transform = 'translateY(-100%)';
   modalRegister.style.transition = '0.5s';
-  setTimeout(() => { loginContainer.style.visibility = 'visible'; }, 400);
+  setTimeout(() => { loginContainer.style.visibility = 'visible'; }, 550);
 }
 /*getInfo about user and send it to accont.html page*/
 function moveToAccountPage(xmlhttp) {
-  var xmlStr, i, xmlDoc, jsonStr;
+  let xmlStr, i, xmlDoc, jsonStr;
   xmlDoc = xmlhttp.responseXML; //get responceXML;
   jsonStr = "";
   xmlStr = xmlDoc.getElementsByTagName("return"); //get result request in XML string
@@ -153,7 +155,7 @@ function moveToAccountPage(xmlhttp) {
     jsonStr += xmlStr[i].childNodes[0].nodeValue; //get result in JSON string
   }
 
-  var object = JSON.parse(jsonStr);//parse JSON to object    
+  let object = JSON.parse(jsonStr);//parse JSON to object    
 
   localStorage.setItem('firstName', object['FirstName']);
   localStorage.setItem('lastName', object['LastName']);
