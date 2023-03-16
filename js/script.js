@@ -20,28 +20,19 @@ document.addEventListener('DOMContentLoaded', function () {
     modalSignUp.style.transition = '0.5s';    
   })
   /*submit Sign In form*/
-  formSignIn.addEventListener('submit', function (event) {    
-    let loginSignIn = formSignIn.elements.loginSignIn;
-    let passwordSignIn = formSignIn.elements.passwordSignIn;
-
+  formSignIn.addEventListener('submit', function (event) { 
     event.preventDefault(true);
-    soapReuqestSignIn(loginSignIn, passwordSignIn);
+    soapReuqestSignIn(formSignIn);
     event.target.reset();
   })
   /*submit Sign Up form*/
   formSignUp.addEventListener('submit', function (event) {
 
-    let emailSignUp = formSignUp.elements.emailSignUp;
-    let firstNameSignUp = formSignUp.elements.firstNameSignUp;
-    let lastNameSignUp = formSignUp.elements.lastNameSignUp;
-    let passwordSignUp = formSignUp.elements.passwordSignUp;
-    let mobileSignUp = formSignUp.elements.mobileSignUp;
-
     event.preventDefault(true);
     signInContainer = document.querySelector('.signIn-container');
     signInContainer.style.visibility = 'hidden';
     
-    soapReuqestSignUp(emailSignUp, passwordSignUp, firstNameSignUp, lastNameSignUp, mobileSignUp);
+    soapReuqestSignUp(formSignUp);
     event.target.reset();
   })
   /*close responce modal-window*/
@@ -53,13 +44,13 @@ document.addEventListener('DOMContentLoaded', function () {
   })
 })
 /* Soap request Sign In*/
-function soapReuqestSignIn(login, password) {
+function soapReuqestSignIn(formSignIn) {
   var soapRequest = '<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/ XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:ICUTech.Intf-IICUTech">' +
     '<soapenv:Header/>' +
     '<soapenv:Body>' +
       '<urn:Login soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">' +
-      '<UserName xsi:type="xsd:string">' + login.value + '</UserName>' +
-      '<Password xsi:type="xsd:string">' + password.value + '</Password>' +
+      '<UserName xsi:type="xsd:string">' + formSignIn.elements.loginSignIn.value + '</UserName>' +
+      '<Password xsi:type="xsd:string">' + formSignIn.elements.passwordSignIn.value + '</Password>' +
       '<IPs xsi:type="xsd:string"></IPs>' +
       '</urn:Login>' +
     '</soapenv:Body>' +
@@ -77,16 +68,16 @@ function soapReuqestSignIn(login, password) {
   xmlhttp.send(soapRequest);
 }
 /* Soap request Sign Up*/
-function soapReuqestSignUp(Email, Password, FirstName, LastName, Mobile) {
+function soapReuqestSignUp(formSignUp) {
   let soapRequest = '<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:ICUTech.Intf-IICUTech">' +
     '<soapenv:Header/>' +
     '<soapenv:Body>' +
       '<urn:RegisterNewCustomer soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">' +
-        '<Email xsi:type="xsd:string">' + Email.value + '</Email>' +
-        '<Password xsi:type="xsd:string">' + Password.value + '</Password>' +
-        '<FirstName xsi:type="xsd:string">' + FirstName.value + '</FirstName>' +
-        '<LastName xsi:type="xsd:string">' + LastName.value + '</LastName>' +
-        '<Mobile xsi:type="xsd:string">' + Mobile.value + '</Mobile>' +
+        '<Email xsi:type="xsd:string">' + formSignUp.elements.emailSignUp.value + '</Email>' +
+        '<Password xsi:type="xsd:string">' + formSignUp.elements.passwordSignUp.value + '</Password>' +
+        '<FirstName xsi:type="xsd:string">' + formSignUp.elements.firstNameSignUp.value + '</FirstName>' +
+        '<LastName xsi:type="xsd:string">' + formSignUp.elements.lastNameSignUp.value + '</LastName>' +
+        '<Mobile xsi:type="xsd:string">' + formSignUp.elements.mobileSignUp.value + '</Mobile>' +
         '<CountryID xsi:type="xsd:int">0</CountryID>' +
         '<aID xsi:type="xsd:int">0</aID>' +
         '<SignupIP xsi:type="xsd:string">0</SignupIP>' +
@@ -137,7 +128,7 @@ function showRequestResponce(colorMessage, message) {
 }
 
 /*Close Sign Up modal-window*/
-function closeModalSignUpMenu() {
+async function closeModalSignUpMenu() {
   let loginContainer = document.querySelector('.signIn-container');
   let modalRegister = document.querySelector('.modal-signUp');
   modalRegister.style.visibility = 'hidden';
