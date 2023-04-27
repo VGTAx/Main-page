@@ -14,10 +14,8 @@ document.addEventListener('DOMContentLoaded', function () {
   })
   /*Call Sign Up modal-window */
   btnCallSignUpMenu.addEventListener('click', function () {
-    signInContainer.style.visibility = 'hidden';
-    modalSignUp.style.visibility = 'visible';
-    modalSignUp.style.transform = 'translateY(0%)';
-    modalSignUp.style.transition = '0.5s';    
+    signInContainer.classList.toggle('hiddenCont');
+    modalSignUp.classList.toggle('visibleContTrans');     
   })
   /*submit Sign In form*/
   formSignIn.addEventListener('submit', function (event) { 
@@ -27,20 +25,16 @@ document.addEventListener('DOMContentLoaded', function () {
   })
   /*submit Sign Up form*/
   formSignUp.addEventListener('submit', function (event) {
-
     event.preventDefault(true);
     signInContainer = document.querySelector('.signIn-container');
-    signInContainer.style.visibility = 'hidden';
-    
     soapReuqestSignUp(formSignUp);
     event.target.reset();
   })
   /*close responce modal-window*/
   let btnCloseModalResponce = document.querySelector('.btn-close-modal-responce');
   btnCloseModalResponce.addEventListener('click', function () {
-    let modalResponce = document.querySelector('.modal-responce')
-    modalResponce.style.visibility = 'hidden';
-    modalResponce.style.transition = '.1ms';
+    let modalResponce = document.querySelector('.modal-responce')    
+    modalResponce.classList.toggle('visibleContTrans');
   })
 })
 /* Soap request Sign In*/
@@ -121,20 +115,17 @@ function showRequestResponce(colorMessage, message) {
   modalResponceText.innerText = message;
   modalResponceText.style.color = colorMessage;
   /*show modal responce modal-window*/
-  let modalResponce = document.querySelector('.modal-responce')
-  modalResponce.style.visibility = 'visible';
-  modalResponce.style.transition = '.4s';
-  modalResponce.style.transform = 'translateY(0%)';
+  let modalResponce = document.querySelector('.modal-responce')  
+  modalResponce.classList.toggle('visibleContTrans');
 }
 
 /*Close Sign Up modal-window*/
 async function closeModalSignUpMenu() {
   let loginContainer = document.querySelector('.signIn-container');
-  let modalRegister = document.querySelector('.modal-signUp');
-  modalRegister.style.visibility = 'hidden';
-  modalRegister.style.transform = 'translateY(-100%)';
-  modalRegister.style.transition = '0.5s';
-  setTimeout(() => { loginContainer.style.visibility = 'visible'; }, 550);
+  let modalRegister = document.querySelector('.modal-signUp');  
+  modalRegister.classList.toggle('visibleContTrans');
+  loginContainer.classList.toggle('hiddenCont');  
+  // loginContainer.style.visibility = 'visible';  
 }
 /*getInfo about user and send it to accont.html page*/
 function moveToAccountPage(xmlhttp) {

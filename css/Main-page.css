@@ -92,6 +92,16 @@
   z-index: 1;
 }
 
+.visibleContTrans {
+  visibility: visible;
+  transform: translateY(0%);
+  transition: 0.5s;
+}
+
+.hiddenCont {
+  visibility: hidden;
+}
+
 #sendBtn,
 #btnSignUp,
 #sendBtnSignUp,
