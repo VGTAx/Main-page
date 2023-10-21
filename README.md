@@ -1,12 +1,12 @@
 # Main-page
-Main-Page - это веб-приложение, которое позволяет пользователям зарегистрироваться и авторизоваться для доступа к определенным функциям. Приложение реализовано на базе технологий <b>JavaScript, HTML и CSS</b>, и использует <b>SOAP-запросы</b> для обмена данными с сервером.<br>
+Main-Page is a web application that allows users to register and log in to access certain features. The application is implemented based on <b>JavaScript, HTML and CSS</b> technologies, and uses <b>SOAP requests</b> to exchange data with the server.<br>
 
-Приложение имеет две основные функции - регистрацию и авторизацию пользователей. Обе функции реализованы в виде модального окна, которое появляется на главной странице при нажатии на кнопку.<br>
+The application has two main functions - user registration and authorization. Both functions are implemented in the form of a modal window that appears on the main page when you click on the button.<br>
 
-При нажатии на кнопку "Регистрация" в модальном окне открывается форма, где пользователь может ввести свои данные, такие как имя, фамилия, телефон, адрес электронной почты и пароль. После заполнения всех полей пользователь может нажать на кнопку "Зарегистрироваться", чтобы отправить свои данные на сервер с помощью SOAP-запроса. При успешной регистрации сервер отправляет подтверждение, и пользователь перенаправляется на страницу авторизации. <br>
+When you click on the "Register" button, a form opens in a modal window where the user can enter his data, such as first name, last name, phone number, email address and password. After filling in all the fields, the user can click on the "Register" button to send their data to the server using a SOAP request. Upon successful registration, the server sends a confirmation and the user is redirected to the authorization page. <br>
 
-Все элементы пользовательского интерфейса оформлены с помощью HTML и CSS. Для обработки событий на клиентской стороне использован JavaScript. Для отправки SOAP-запросов на сервер используется соответствующая библиотека. Все данные, полученные от сервера, отображаются на странице с помощью JavaScript.<br>
+All user interface elements are designed using HTML and CSS. JavaScript is used to process events on the client side. To send SOAP requests to the server, the corresponding library is used. All data received from the server is displayed on the page using JavaScript.<br>
 
-<b>Инструкции по установке и использованию:</b><br>
+<b>Installation and use instructions:</b><br>
 
-Откройте браузер и перейдите по ссылке https://main-pages.neocities.org/
+Open your browser and go to https://main-pages.neocities.org/
